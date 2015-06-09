@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Gecmt</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">    <!-- 强制双核浏览器使用webkit内核 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度手机版转码 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/jsx">
+
+        var info = {
+            title : 'Gecmt',
+            description : '树のReact留言板'
+        };
+
+        var comments = [
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '1内容内容内容内容内容内容内容内容内容内容'
+            },
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '2内容内容内容内容内容内容内容内容内容内容'
+            },
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '4内容内容内容内容内容内容内容内容内容内容'
+            },
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '5内容内容内容内容内容内容内容内容内容内容'
+            },
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '6内容内容内容内容内容内容内容内容内容内容'
+            },
+            {
+                name : "树",
+                email : "ggongpei@qq.com",
+                content : '7内容内容内容内容内容内容内容内容内容内容'
+            }
+        ];
+
+        var CmtHeader = React.createClass({
+            displayName : 'cmtHeader',
+            render : function() {
+                return (
+                    <header className="logo">
+                        <h1>{this.props.data.title}</h1>
+                        <div className="description">
+                            {this.props.data.description}
+                        </div>
+                    </header>
+                );
+            }
+        });
+
+        var CmtList = React.createClass({
+            displayName : 'cmtList',
+            render : function() {
+                var cmts = this.props.data.map(function(comment) {
+                    return (
+                        <article className = "items">
+                            <div className = "name">Name: {comment.name}</div>
+                            <div className = "email">Email: {comment.email}</div>
+                            <div className = "content">{comment.content}</div>
+                        </article>
+                    );
+                });
+
+                return (
+                    <div className="main">
+                        {cmts}
+                    </div>
+                );
+            }
+        });
+
+        var CmtForm = React.createClass({
+            displayName : 'cmtForm',
+            render : function() {
+                return (
+                    <div id="add">
+                        <form action="/add" method="post">
+                            <div className="nickname">
+                                <p>昵称</p>
+                                <input name="username" type="text" />
+                            </div>
+                            <div className="email">
+                                <p>Email</p>
+                                <input name="email" type="text" />
+                            </div>
+                            <div className="input-content">
+                                <textarea></textarea>
+                            </div>
+                            <button className="btn btn-default" type="button" id="submit">提交</button>
+                        </form>
+                    </div>
+                );
+            }
+        });
+
+        var CmtBody = React.createClass({
+            displayName : 'cmtBody',
+            render : function() {
+                return (
+                    <div id="wrap">
+                        <CmtHeader data={info} />
+                        <CmtList data={comments}/>
+                        <CmtForm />
+                    </div>
+                );
+            }
+        });
+
+
+        React.render(
+            React.createElement(CmtBody, null),
+            document.getElementsByTagName('body')[0]
+        );
+
+    </script>
+
+</body>
+</html>
