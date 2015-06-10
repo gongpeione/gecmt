@@ -27,15 +27,20 @@ img { border: 0; max-width: 100%; }
 /*-----------------[ MAIN ]------------------------*/
 
 body {
+	position: absolute;
+	top: 0;
 	background: #fff;
 	color: #34495e;
+}
+#container {
+	width: 480px;
+	margin: 0 auto;
 }
 #wrap {
 	width: 480px;
 	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 50px;
-	padding: 20px;	
 	color: #34495e;
 }
 
@@ -79,11 +84,17 @@ header .description {
 }
 .main .content {
 	margin-top: 10px;
+	line-height: 1.4;
+	font-size: .8rem;
+}
+.main .name {
+	margin-right: 10px;
 }
 
 form {
 	margin-top: 20px;
 	text-align: right;
+	position: relative;
 }
 form p {
 	margin-bottom: 5px;
@@ -105,8 +116,10 @@ form textarea {
 	padding: 10px;
 	margin-top: 20px;
 	width: 100%;
-	max-width: 100%;
 	min-height: 100px;
+	-webkit-box-sizing: border-box;  
+  	-moz-box-sizing: border-box;  
+  	box-sizing: border-box;  
 }
 form input:focus,
 form textarea:focus {
@@ -117,7 +130,10 @@ form #submit {
 	margin-top: 10px;
 	background: #2ECC71;
 	border: none;
+	border-radius: 5px;
+	outline: none;
 	color: #fff;
 	text-shadow: none;
 	font-size: 1.2rem;
+	font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体" ,sans-serif !important;
 }
