@@ -80,7 +80,7 @@ var CmtHeader = React.createClass({
 
 var CmtList = React.createClass({
     displayName : 'cmtList',
-        render : function() {
+    render : function() {
         var cmts = this.props.data.map(function(comment) {
             return (
                 <article className = "items">
